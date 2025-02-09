@@ -1,8 +1,7 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { Colors } from '../colors'
-import ArrowLeftCircle from '../../assets/icons/left_arrow_circle.svg'
-import ArrowRightCircle from '../../assets/icons/right_arrow_circle.svg'
+import { Icons } from '../../assets/icons'
 
 export default function Paginator({ page, availableLeftPages, availableRightPages, onPageChange }: { page: number, availableLeftPages: boolean, availableRightPages: boolean, onPageChange: (page: number) => void }) {
     return (
@@ -12,7 +11,7 @@ export default function Paginator({ page, availableLeftPages, availableRightPage
                     style={Styles.paginationButton}
                     onPress={() => onPageChange(page - 1)}
                 >
-                    <ArrowLeftCircle />
+                    <Icons.ArrowLeftCircle />
                 </TouchableOpacity>
             )}
 
@@ -25,7 +24,7 @@ export default function Paginator({ page, availableLeftPages, availableRightPage
                     style={Styles.paginationButton}
                     onPress={() => onPageChange(page + 1)}
                 >
-                    <ArrowRightCircle />
+                    <Icons.ArrowRightCircle />
                 </TouchableOpacity>
             )}
         </View>
