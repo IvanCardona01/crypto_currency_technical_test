@@ -23,7 +23,7 @@ export const ItemsPerPageSelectorModal = ({
             transparent
             animationType="fade"
             onRequestClose={onClose}
-            supportedOrientations={['portrait', 'landscape']} // Importante!
+            supportedOrientations={['portrait', 'landscape']}
         >
             <TouchableOpacity
                 style={styles.overlay}
