@@ -1,6 +1,8 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { Colors } from '../colors'
+import ArrowLeftCircle from '../../assets/icons/left_arrow_circle.svg'
+import ArrowRightCircle from '../../assets/icons/right_arrow_circle.svg'
 
 export default function Paginator({ page, availableLeftPages, availableRightPages, onPageChange }: { page: number, availableLeftPages: boolean, availableRightPages: boolean, onPageChange: (page: number) => void }) {
     return (
@@ -10,7 +12,7 @@ export default function Paginator({ page, availableLeftPages, availableRightPage
                     style={Styles.paginationButton}
                     onPress={() => onPageChange(page - 1)}
                 >
-                    <Text style={Styles.paginationText}>{'<'}</Text>
+                    <ArrowLeftCircle />
                 </TouchableOpacity>
             )}
 
@@ -23,7 +25,7 @@ export default function Paginator({ page, availableLeftPages, availableRightPage
                     style={Styles.paginationButton}
                     onPress={() => onPageChange(page + 1)}
                 >
-                    <Text style={Styles.paginationText}>{'>'}</Text>
+                    <ArrowRightCircle />
                 </TouchableOpacity>
             )}
         </View>
@@ -35,14 +37,15 @@ const Styles = StyleSheet.create({
         position: 'absolute',
         bottom: 20,
         alignSelf: 'center',
+        alignItems: 'center',
         flexDirection: 'row',
         backgroundColor: 'rgba(0,0,0,0.7)',
-        borderRadius: 20,
+        borderRadius: 100,
         padding: 8,
     },
     paginationButton: {
-        paddingHorizontal: 12,
-        paddingVertical: 8,
+        paddingHorizontal: 4,
+        paddingVertical: 2,
     },
     paginationPageContainer: {
         paddingHorizontal: 12,

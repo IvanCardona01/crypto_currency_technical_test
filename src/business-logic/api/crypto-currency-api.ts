@@ -5,11 +5,11 @@ import { ENDPOINTS } from "../constants/endpoints"
 
 export const cryptoCurrencyApi = {
     getCryptoCurrencies: async (page: number, itemsPerPage: number) => {
-        const initialIndex = page ? (page - 1) * itemsPerPage : 0
-        const finalIndex = itemsPerPage ? initialIndex + itemsPerPage : 20
+        const startIndex = (page - 1) * itemsPerPage;
+        const limit = itemsPerPage;
 
-        const queryParams = `?start=${initialIndex}&limit=${finalIndex}`
-        return (await apiClient.get<CryptoCurrency[]>(`${ENDPOINTS.cryptoCurrencies}${queryParams}`)).data
+        const queryParams = `?start=${startIndex}&limit=${limit}`;
+        return (await apiClient.get<CryptoCurrency[]>(`${ENDPOINTS.cryptoCurrencies}${queryParams}`)).data;
     },
     filterPerPageCryptoCurrencies: async (page: number, itemsPerPage: number) => {
         const initialIndex = (page - 1) * itemsPerPage
