@@ -1,7 +1,8 @@
 import { create } from 'zustand';
 import { CryptoCurrency } from '../../../business-logic/response-models/crypto-currency';
 import { useGetCryptoCurrencies } from '../../../business-logic/hooks/queries/crypto-currency/use-get-crypto-currencies';
-import { useFilterCryptoCurrencies } from '../../../business-logic/hooks/mutations/use-filter-crypto-currencies';
+import { Routes } from '../../../routes'
+import { NavigationService } from '../../../presentation-logic/navigation-service';
 
 interface CryptoListState {
     page: number;
@@ -18,6 +19,7 @@ interface CryptoListState {
     };
     isSelectorVisible: boolean;
     setIsSelectorVisible: (isSelectorVisible: boolean) => void;
+    navigateToDetail: (cryptoId: string) => void;
 }
 
 export const useCryptoListViewModel = create<CryptoListState>((set, get) => ({
@@ -42,4 +44,7 @@ export const useCryptoListViewModel = create<CryptoListState>((set, get) => ({
     },
     isSelectorVisible: false,
     setIsSelectorVisible: (isSelectorVisible: boolean) => set({ isSelectorVisible }),
+    navigateToDetail: (cryptoId: string) => {
+        NavigationService.navigate(Routes.cryptoDetail, { cryptoId });
+    },
 }));
