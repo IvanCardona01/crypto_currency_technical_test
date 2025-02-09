@@ -50,7 +50,7 @@ export default function CryptoListView() {
         <Text>Ranking: {item.rank}</Text>
       </View>
       <TouchableOpacity style={{ marginLeft: 'auto' }} onPress={() => {
-        navigateToDetail(item.id);
+        navigateToDetail(item);
       }}>
         <Text style={CryptoListStyles.pressableText}>
           See Detail

@@ -19,7 +19,7 @@ interface CryptoListState {
     };
     isSelectorVisible: boolean;
     setIsSelectorVisible: (isSelectorVisible: boolean) => void;
-    navigateToDetail: (cryptoId: string) => void;
+    navigateToDetail: (cryptocurrencyInfo: CryptoCurrency) => void;
 }
 
 export const useCryptoListViewModel = create<CryptoListState>((set, get) => ({
@@ -44,7 +44,7 @@ export const useCryptoListViewModel = create<CryptoListState>((set, get) => ({
     },
     isSelectorVisible: false,
     setIsSelectorVisible: (isSelectorVisible: boolean) => set({ isSelectorVisible }),
-    navigateToDetail: (cryptoId: string) => {
-        NavigationService.navigate(Routes.cryptoDetail, { cryptoId });
+    navigateToDetail: (cryptocurrencyInfo: CryptoCurrency) => {
+        NavigationService.navigate(Routes.cryptoDetail, { cryptocurrencyInfo: JSON.stringify(cryptocurrencyInfo) });
     },
 }));

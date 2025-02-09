@@ -61,12 +61,12 @@ export const ItemsPerPageSelectorModal = ({
 const styles = StyleSheet.create({
     overlay: {
         flex: 1,
-        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        backgroundColor: Colors.overlay,
         justifyContent: 'center',
         alignItems: 'center',
     },
     content: {
-        backgroundColor: 'white',
+        backgroundColor: Colors.white,
         borderRadius: 12,
         padding: 16,
         width: '80%',
@@ -91,6 +91,6 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     selectedOptionText: {
-        color: 'white',
+        color: Colors.white,
     },
 });
