@@ -1,23 +1,36 @@
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { QueryClientProvider } from '@tanstack/react-query';
 import React from 'react';
-import { SafeAreaView } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { queryClient } from './src/business-logic/client/query-client';
-import CryptoListScreen from './src/views/crypto-list/crypto-list-view';
+import CryptoListView from './src/views/crypto-list/crypto-list-view';
+import CryptoDetailView from './src/views/crypto-detail/crypto-detail-view';
+import { Routes } from './src/routes';
+import { navigationRef } from './src/presentation-logic/navigation-service';
 
+const Stack = createNativeStackNavigator();
 
 function App(): React.JSX.Element {
-  const backgroundStyle = {
-    backgroundColor: Colors.lighter,
-  };
-
   return (
-    <SafeAreaProvider style={backgroundStyle}>
+    <SafeAreaProvider>
       <QueryClientProvider client={queryClient}>
-        <SafeAreaView style={{ flex: 1 }}>
-          <CryptoListScreen />
-        </SafeAreaView>
+        <NavigationContainer ref={navigationRef}>
+          <Stack.Navigator
+            screenOptions={{
+              headerShown: false
+            }}
+          >
+            <Stack.Screen
+              name={Routes.cryptoList}
+              component={CryptoListView}
+            />
+            <Stack.Screen
+              name={Routes.cryptoDetail}
+              component={CryptoDetailView}
+            />
+          </Stack.Navigator>
+        </NavigationContainer>
       </QueryClientProvider>
     </SafeAreaProvider>
   );
