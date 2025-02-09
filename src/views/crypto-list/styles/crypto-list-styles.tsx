@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { Colors } from "react-native/Libraries/NewAppScreen";
+import { Colors } from "../../../common/colors";
 
 export const CryptoListStyles = StyleSheet.create({
     card: {
@@ -30,5 +30,22 @@ export const CryptoListStyles = StyleSheet.create({
         textDecorationLine: 'underline',
         fontSize: 14,
         padding: 6,
-    }
+    },
+    filterContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: 8,
+    },
+    filterLabel: {
+        color: 'white',
+    },
+    filterButton: {
+        backgroundColor: Colors.grayLight,
+        paddingHorizontal: 12,
+        paddingVertical: 4,
+        borderRadius: 8,
+    },
+    filterButtonText: {
+        color: 'white',
+    },
 });

@@ -3,6 +3,10 @@ import { Colors } from "./colors";
 
 export const CommonStyles = StyleSheet.create({
     headerBar: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        padding: 16,
         height: 60,
         backgroundColor: Colors.primary,
         borderBottomLeftRadius: 16,
