@@ -6,6 +6,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { CryptoCurrency } from '../../business-logic/response-models/crypto-currency';
 import { CryptoDetailStyles } from './styles/crypto-detail-style';
 import { Icons } from '../../assets/icons';
+import { TEST_IDS } from '../../common/constants';
 
 export default function CryptoDetailView() {
     const route = useRoute();
@@ -17,7 +18,7 @@ export default function CryptoDetailView() {
     return (
         <SafeAreaView style={CryptoDetailStyles.container}>
             <View style={CryptoDetailStyles.header}>
-                <TouchableOpacity testID="back-button" onPress={goBack} style={CryptoDetailStyles.backButton}>
+                <TouchableOpacity testID={TEST_IDS.BACK_BUTTON} onPress={goBack} style={CryptoDetailStyles.backButton}>
                     <Icons.BackIcon />
                 </TouchableOpacity>
                 <Text style={CryptoDetailStyles.title}>{cryptoInfo?.name}</Text>

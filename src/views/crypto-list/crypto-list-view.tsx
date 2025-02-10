@@ -8,6 +8,7 @@ import { ItemsPerPageSelectorModal } from '../../common/components/items-per-pag
 import { Colors } from '../../common/colors'
 import Paginator from '../../common/components/paginator'
 import { SafeAreaView } from 'react-native-safe-area-context'
+import { TEST_IDS } from '../../common/constants'
 
 export default function CryptoListView() {
 
@@ -28,7 +29,7 @@ export default function CryptoListView() {
   if (isLoading) {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <ActivityIndicator size="large" />
+        <ActivityIndicator testID={TEST_IDS.LOADING_INDICATOR} size="large" />
       </View>
     )
   }
@@ -74,6 +75,7 @@ export default function CryptoListView() {
           </View>
         </View>
         <FlatList
+          testID={TEST_IDS.CRYPTO_LIST}
           contentContainerStyle={{ paddingBottom: 80 }}
           data={cryptoCurrencies}
           renderItem={renderItem}
@@ -99,6 +101,7 @@ export default function CryptoListView() {
           currentValue={itemsPerPage}
         />
         <Paginator
+          testID={TEST_IDS.PAGINATOR}
           page={page}
           availableLeftPages={page > 1}
           availableRightPages={(cryptoCurrencies && cryptoCurrencies.length > 0) ?? false}

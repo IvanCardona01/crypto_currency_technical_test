@@ -2,12 +2,14 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { Colors } from '../colors'
 import { Icons } from '../../assets/icons'
+import { TEST_IDS } from '../constants'
 
-export default function Paginator({ page, availableLeftPages, availableRightPages, onPageChange }: { page: number, availableLeftPages: boolean, availableRightPages: boolean, onPageChange: (page: number) => void }) {
+export default function Paginator({ testID, page, availableLeftPages, availableRightPages, onPageChange }: { testID?: string, page: number, availableLeftPages: boolean, availableRightPages: boolean, onPageChange: (page: number) => void }) {
     return (
-        <View style={Styles.paginationContainer}>
+        <View testID={testID} style={Styles.paginationContainer}>
             {availableLeftPages && (
                 <TouchableOpacity
+                    testID={TEST_IDS.PAGINATOR_PREVIOUS_BUTTON}
                     style={Styles.paginationButton}
                     onPress={() => onPageChange(page - 1)}
                 >
@@ -21,6 +23,7 @@ export default function Paginator({ page, availableLeftPages, availableRightPage
 
             {availableRightPages && (
                 <TouchableOpacity
+                    testID={TEST_IDS.PAGINATOR_NEXT_BUTTON}
                     style={Styles.paginationButton}
                     onPress={() => onPageChange(page + 1)}
                 >
