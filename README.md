@@ -3,9 +3,23 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 
 # Getting Started
 
+## Generalities
+
+This project use the architecture based in clean Architecture + MVVM (Model-View-ViewModel) with this objetive:
+
+- Use Zustand for the state management.
+- Use React Query for the data fetching.
+- Use React Navigation for the navigation.
+- Use React Native Safe Area Context for the safe area.
+- Keep business logic out of the UI layer.
+- Keep the UI layer focused on presenting data and interacting with the user.
+- Keep the presentation logic focused on the view models.
+- Keep the data layer focused on storing and retrieving data.
+
+
 ## Considerations
 
-This proyect was build with the next versions:
+This project was build with the next versions:
 
 react => 18.3.1
 
